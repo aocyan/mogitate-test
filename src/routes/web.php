@@ -19,3 +19,5 @@ Route::get('/register', [ProductController::class, 'register']);
 Route::post('/register', [ProductController::class, 'store']);
 
 Route::get('/detail', [ProductController::class, 'detail']);
+
+Route::get('/products', [ProductController::class, 'product']);
