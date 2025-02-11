@@ -19,13 +19,6 @@
     padding-top: 20px;
 }
 
-span {
-    padding: 0 2px;
-    margin: 0 10px;
-    background-color: #FF0507;
-    color: #F8F8F8;
-}
-
 .form__input {
     padding: 12px;
     width: 70%;
@@ -59,7 +52,7 @@ span {
     width: 200px;
     text-decoration: none;
     border-radius: 2px;
-    background-color: #6F6F6F;
+    background-color: #E1DFDE;
     color: #000;
     cursor: pointer;
 }
