@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\Season;
+use App\Models\Product_Season;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 
