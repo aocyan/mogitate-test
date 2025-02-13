@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/register', [ProductController::class, 'register']);
-Route::post('/register', [ProductController::class, 'store']);
+Route::get('/products/register', [ProductController::class, 'register']);
+Route::post('products/register', [ProductController::class, 'store']);
 
 Route::get('/detail', [ProductController::class, 'detail']);
 
