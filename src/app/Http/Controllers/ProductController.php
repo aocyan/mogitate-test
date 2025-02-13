@@ -20,29 +20,39 @@ class ProductController extends Controller
 
     public function product()
     {
-        return view('product');
+        $products = Product::select('image','name', 'price')->paginate(6);
+
+        return view('product', compact('products'));
     }
 
     public function store(Request $request)
     {
         if($request->input('action') === 'register'){
 
+            $imagePath = null;
+
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('public/products');
+            }
+
 	        $product = Product::create([
                 'name' => $request->input('name'),
                 'price' => $request->input('price'),
-                'image' => $request->input('image'),
+                'image' => $imagePath,
                 'description' => $request->input('description'), 
             ]);
 
             $seasonIds = [];
             foreach ($request->input('season') as $seasonName) {
                 $season = Season::firstOrCreate(['name' => $seasonName]);
-                $seasonIds[] = $season->id;  // 季節IDを配列に追加
+                $seasonIds[] = $season->id;
             }
 
             $product->seasons()->attach($seasonIds, ['created_at' => now(), 'updated_at' => now()]);
 
-            return view('product');
+            $products = Product::select('image','name', 'price')->paginate(6);
+
+            return view('product', compact('products'));
         }
     }
 }

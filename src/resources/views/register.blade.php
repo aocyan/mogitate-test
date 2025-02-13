@@ -12,7 +12,7 @@
                 <h2>商品登録</h2>
             </div>
         </div>
-        <form class="register-form" action="/products/register" method="post">
+        <form class="register-form" action="/products/register" method="post" enctype="multipart/form-data">
         @csrf
             <div class="form__group">
                 <div class="form__group-title">
