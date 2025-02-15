@@ -39,11 +39,13 @@
                 <div class="product__container">
                 @foreach ($products as $product)
                     <div class="product-item">
-                        <img class="product__image" src="{{ asset('storage/products/' . basename($product->image)) }}" alt="{{ $product->name }}" />
-                        <div class="product__text">
-                            <input class="name--text" type="text" name="name" value="{{ $product['name'] }}" readonly />
-                            <input class="price--text" type="text" name="price" value="￥{{ $product['price'] }}" readonly />
-                        </div>
+                        <a class="product-item__link" href="{{ route('products.show', $product->id) }}">
+                            <img class="product__image" src="{{ asset('storage/products/' . basename($product->image)) }}" alt="{{ $product->name }}" />
+                            <div class="product__text">
+                                <input class="name--text" type="text" name="name" value="{{ $product['name'] }}" readonly />
+                                <input class="price--text" type="text" name="price" value="￥{{ $product['price'] }}" readonly />
+                            </div>
+                        </a>
                     </div>
                 @endforeach
                 </div>

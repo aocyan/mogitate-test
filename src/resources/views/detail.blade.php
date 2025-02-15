@@ -18,7 +18,7 @@
                 <div class="form__group-title">
                     <p>商品名</p>
                 </div>
-                <input class="form__input" type="text" name="name" value="{{ old('name') }}" />
+                <input class="form__input" type="text" name="name" value="{{ $product->name }}" />
                 <div class="form__error">
                     @error('name')
                     {{ $message }}
@@ -27,7 +27,7 @@
                 <div class="form__group-title">
                     <p>値段</p>
                 </div>
-                <input class="form__input" type="text" name="price" value="{{ old('price') }}"/>
+                <input class="form__input" type="text" name="price" value="{{ $product->price }}"/>
                 <div class="form__error">
                     @error('price')
                         {{ $message }}
@@ -36,10 +36,21 @@
                 <div class="form__group-title">
                     <p>季節</p>
                     <div class="season__check">
-                        <label><input type="checkbox" name="season" value="spring"> 春</label>
-                        <label><input class="season__check--text" type="checkbox" name="season" value="summer"> 夏</label>
-                        <label><input class="season__check--text" type="checkbox" name="season" value="autumn"> 秋</label>
-                        <label><input class="season__check--text" type="checkbox" name="season" value="winter"> 冬</label>
+                        @php
+                            $selectedSeasons = $product->seasons->pluck('name')->toArray();
+                        @endphp
+                        <label>
+                            <input class="season__check--text" type="checkbox" name="season[]" value="春" {{ in_array('春', $selectedSeasons) ? 'checked' : '' }}> 春
+                        </label>
+                        <label>
+                            <input class="season__check--text" type="checkbox" name="season[]" value="夏" {{ in_array('夏', $selectedSeasons) ? 'checked' : '' }}> 夏
+                        </label>
+                        <label>
+                            <input class="season__check--text" type="checkbox" name="season[]" value="秋" {{ in_array('秋', $selectedSeasons) ? 'checked' : '' }}> 秋
+                        </label>
+                        <label>
+                            <input class="season__check--text" type="checkbox" name="season[]" value="冬" {{ in_array('冬', $selectedSeasons) ? 'checked' : '' }}> 冬
+                        </label>
                     </div>
                 </div>
                 <div class="form__error">
@@ -48,8 +59,11 @@
                     @enderror
                 </div>
                 <div class="form__group-image">
+                    <div class="image__item">
+                        <img class="image__item--detail" src="{{ asset('storage/products/' . basename($product->image)) }}" alt="{{ $product->name }}" />
+                    </div>
                     <div class="image__text">
-                        <input type="file" id="image-upload" name="image" accept="image/*" value="{{ old('image') }}"/>
+                        <input type="file" id="image-upload" name="image" accept="image/*" value="{{ $product->image }}"/>
                     </div>
                 </div>
                 <div class="form__error">
@@ -59,7 +73,7 @@
                 </div>
                 <div class="form__group-text">
                     <p>商品説明</p>
-                    <textarea class="form__message--text" name="message" rows="8" cols="100"></textarea>
+                    <textarea class="form__message--text" name="description" rows="8" cols="100">{{ $product->description }}</textarea>
                 </div>
                 <div class="form__error">
                     @error('message')

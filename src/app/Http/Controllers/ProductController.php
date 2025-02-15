@@ -20,9 +20,15 @@ class ProductController extends Controller
 
     public function product()
     {
-        $products = Product::select('image','name', 'price')->paginate(6);
+        $products = Product::select('id','image','name','price')->paginate(6);
 
         return view('product', compact('products'));
+    }
+
+    public function show(Product $product)
+    {
+        $product->load('seasons');
+        return view('detail', compact('product'));
     }
 
     public function store(Request $request)
@@ -50,7 +56,7 @@ class ProductController extends Controller
 
             $product->seasons()->attach($seasonIds, ['created_at' => now(), 'updated_at' => now()]);
 
-            $products = Product::select('image','name', 'price')->paginate(6);
+            $products = Product::select('image','name','price')->paginate(6);
 
             return view('product', compact('products'));
         }

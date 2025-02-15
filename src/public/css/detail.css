@@ -13,6 +13,9 @@
     margin-right: 20%;
 }
 
+.form__group {
+    position: relative;
+}
 .form__group-title {
     text-decoration: none;
     margin-left: 50%;
@@ -22,10 +25,20 @@
 }
 
 .form__group-image {
+    width: 45%;
+    position: absolute;
+    top: 20px;
+}
+
+.image__text {
     text-decoration: none;
     font-size: 15px;
     color: #000;
-    padding-top: 20px;
+    padding-top: 30px;
+}
+
+.image__item--detail {
+    width: 100%;
 }
 
 .form__input {
@@ -40,13 +53,14 @@
 
 .season__check--text {
     margin-left: 5%;
+    z-index: 100;
 }
 
 .form__group-text {
     text-decoration: none;
     font-size: 15px;
     color: #000;
-    padding-top: 20px;
+    padding-top: 40px;
 }
 
 .form__message--text {
@@ -59,7 +73,7 @@
 
 .form__button {
     width: 35%;
-    margin-left: 15%;
+    margin-left: 20%;
     display: flex;
     padding-top: 30px;
 }
