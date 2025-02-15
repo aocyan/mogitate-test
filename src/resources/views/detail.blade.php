@@ -8,7 +8,7 @@
 <div class="background--color">
     <nav>
         <div class="header__nav">
-            <a class="header__nav--text" href="/products">商品一覧</a><span class="header__nav--item">>キウイ</span>
+            <a class="header__nav--text" href="/products">商品一覧</a><span class="header__nav--item">> {{ $product->name }}</span>
         </div>
     </nav>
     <div class="detail">
@@ -86,6 +86,11 @@
                     <button class="form__button-submit" type="submit">変更を保存</button>
                 </div>
             </div>
+        </form>
+        <form action="{{ url('/products/' . $product->id . '/delete') }}" method="post" style="display:inline;">
+        @csrf
+        @method('DELETE')
+            <button class="form__button-delete" type="submit">削除</button>
         </form>
     </div>
 </div>
