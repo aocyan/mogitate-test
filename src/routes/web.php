@@ -20,4 +20,7 @@ Route::post('/products/register', [ProductController::class, 'store']);
 
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 
-Route::get('/products', [ProductController::class, 'product']);
+Route::get('/products', [ProductController::class, 'product'])->name('products');
+
+Route::put('/products/{product}/update', [ProductController::class, 'update'])->name('product.update');
+

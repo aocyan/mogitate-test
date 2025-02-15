@@ -6,16 +6,13 @@ use App\Models\Product;
 use App\Models\Season;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
     public function register()
     {
         return view('register');
-    }
-    public function detail()
-    {
-        return view('detail');
     }
 
     public function product()
@@ -61,4 +58,33 @@ class ProductController extends Controller
             return view('product', compact('products'));
         }
     }
+
+    public function update(Request $request, Product $product)
+    {
+        if ($request->hasFile('image')) {
+            if ($product->image && Storage::exists($product->image)) {
+                Storage::delete($product->image);
+            }
+
+            $imagePath = $request->file('image')->store('public/products');
+            $product->image = $imagePath;
+        }
+    
+        $product->name = $request->input('name');
+        $product->price = $request->input('price');
+        $product->description = $request->input('description');
+
+        $seasonIds = [];
+        foreach ($request->input('season') as $seasonName) {
+            $season = Season::firstOrCreate(['name' => $seasonName]);
+            $seasonIds[] = $season->id;
+        }
+
+        $product->seasons()->sync($seasonIds);
+
+        $product->save();
+
+        return redirect()->route('products');
+    }
+
 }

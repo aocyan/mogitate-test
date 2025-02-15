@@ -12,8 +12,9 @@
         </div>
     </nav>
     <div class="detail">
-        <form class="detail-form" action="/products" method="post">
+        <form class="detail-form" action="{{ route('product.update', $product->id) }}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
             <div class="form__group">
                 <div class="form__group-title">
                     <p>商品名</p>
@@ -82,7 +83,7 @@
                 </div>
                 <div class="form__button">
                     <a class="form__button-back" href="/products">戻る</a>
-                    <button class="form__button-submit" type="submit" name="back" value="back">変更を保存</button>
+                    <button class="form__button-submit" type="submit">変更を保存</button>
                 </div>
             </div>
         </form>
