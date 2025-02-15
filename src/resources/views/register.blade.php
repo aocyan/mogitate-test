@@ -18,7 +18,7 @@
                 <div class="form__group-title">
                     <p>商品名<span>必須</span></p>
                 </div>
-                <input class="form__input" type="text" name="name" />
+                <input class="form__input" type="text" name="name" value="{{ old('name') }}"  placeholder="商品名を入力"  />
                 <div class="form__error">
                     @error('name')
                     {{ $message }}
@@ -27,7 +27,7 @@
                 <div class="form__group-title">
                     <p>値段<span>必須</span></p>
                 </div>
-                <input class="form__input" type="text" name="price" />
+                <input class="form__input" type="text" name="price" value="{{ old('price') }}"  placeholder="値段を入力"  />
                 <div class="form__error">
                     @error('price')
                         {{ $message }}
@@ -36,8 +36,8 @@
                 <div class="form__group-title">
                     <p>商品画像<span>必須</span></p>
                     <div class="image__text">
-                        <input type="file" id="image-upload" name="image" accept="image/*"/>
-                    </div>
+                        <input type="file" id="image-upload" name="image" accept="image/*" value="{{ old('image') }}" />
+                        </div>
                 </div>
                 <div class="form__error">
                     @error('image')
@@ -60,7 +60,7 @@
                 </div>
                 <div class="form__group-title">
                     <p>商品説明<span>必須</span></p>
-                    <textarea class="form__message--text" name="description" rows="8" cols="100"></textarea>
+                    <textarea class="form__message--text" name="description" rows="8" cols="100" placeholder="商品の説明を入力">{{ old('description') }}</textarea>
                 </div>
                 <div class="form__error">
                     @error('message')
