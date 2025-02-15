@@ -52,8 +52,9 @@
 }
 
 .season__check--text {
-    margin-left: 5%;
+    margin-left: 6%;
     z-index: 100;
+    cursor: pointer;
 }
 
 .form__group-text {
@@ -99,4 +100,17 @@
     background-color: #F5C900;
     color: #000;
     cursor: pointer;
+}
+
+.form__button-delete {
+    background-color: #F8F8F8;
+    position: relative;
+    left: 70%;
+    bottom: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+.form__button-delete--item {
+    width: 60px;
 }

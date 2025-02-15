@@ -35,7 +35,15 @@ class ProductController extends Controller
             $imagePath = null;
 
             if ($request->hasFile('image')) {
-                $imagePath = $request->file('image')->store('public/products');
+                $originalName = $request->file('image')->getClientOriginalName();
+                $existingProduct = Product::where('image', 'public/products/' . $originalName)->first();
+               
+                if ($existingProduct) {
+                    $imagePath = $existingProduct->image;
+                } 
+                else {
+                    $imagePath = $request->file('image')->storeAs('public/products', $originalName);
+                }
             }
 
 	        $product = Product::create([

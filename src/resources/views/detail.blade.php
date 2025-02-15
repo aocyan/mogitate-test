@@ -64,7 +64,7 @@
                         <img class="image__item--detail" src="{{ asset('storage/products/' . basename($product->image)) }}" alt="{{ $product->name }}" />
                     </div>
                     <div class="image__text">
-                        <input type="file" id="image-upload" name="image" accept="image/*" value="{{ $product->image }}"/>
+                        <input class="image__text--item" type="file" id="image-upload" name="image" accept="image/*" value="{{ $product->image }}"/>
                     </div>
                 </div>
                 <div class="form__error">
@@ -90,7 +90,9 @@
         <form action="{{ url('/products/' . $product->id . '/delete') }}" method="post" style="display:inline;">
         @csrf
         @method('DELETE')
-            <button class="form__button-delete" type="submit">削除</button>
+            <button class="form__button-delete" type="submit">
+                <img class="form__button-delete--item" src="{{ asset('storage/products/trash.png') }}" alt="ゴミ箱" />
+            </button>
         </form>
     </div>
 </div>
