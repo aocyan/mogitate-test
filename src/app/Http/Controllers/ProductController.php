@@ -30,10 +30,10 @@ class ProductController extends Controller
         $selectedPriceOrder = $request->input('price');
         $query = Product::select('id','image','name','price');
 
-        /*if (empty($searchName) && empty($selectedPriceOrder)) {
-            $products = Product::select('image', 'name', 'price')->paginate(6);
+        if (empty($searchName) && empty($selectedPriceOrder)) {
+            $products = $query->paginate(6);
             return view('product', compact('products'));
-        } */      
+        }     
 
         if ($request->filled('name')) {
             $query->where('name', 'like', '%' . $request->input('name') . '%');
