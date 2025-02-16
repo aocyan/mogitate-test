@@ -75,3 +75,9 @@ span {
     color: #000;
     cursor: pointer;
 }
+
+.form__error {
+    margin-top: 5px;
+    font-size: 13px;
+    color: #F80506;
+}
