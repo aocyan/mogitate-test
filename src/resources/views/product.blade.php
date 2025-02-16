@@ -19,7 +19,7 @@
             <nav>
                 <div class="side__nav">
                     <form class="product-form" action="{{ route('products.search') }}" method="get">
-                        <input class="product__search--text" type="text" name="name" value="{{ request('name') }}" placeholder="商品名で検索"/>
+                        <input class="product__search--text" type="text" name="name" placeholder="商品名で検索"/>
                         <div class="product__search-button">
 				            <button class="product__search-button--item" type="submit">検索</button>
                         </div>                  
@@ -34,14 +34,6 @@
                     </form>
                 </div>
             </nav>
-        </div>
-        <div class="filters">
-            @if(request('price'))
-                <div class="filter-tag">
-                    <span>{{ request('price') }}</span>
-                    <a href="{{ route('products.search', ['name' => request('name')]) }}" class="filter-tag__remove">×</a>
-                </div>
-            @endif
         </div>
         <div class="product">
             <form class="product-form" action="/products" method="post">

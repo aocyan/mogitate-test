@@ -95,9 +95,7 @@ class ProductController extends Controller
 
             $products = Product::select('image','name','price')->paginate(6);
 
-            return redirect()->route('product');  // 製品一覧ページにリダイレクト
-
-            //return view('product', compact('products'));
+            return redirect()->route('product');
         }
     }
 
@@ -126,7 +124,9 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect()->route('products');
+        $products = Product::paginate(6);
+
+        return view('product', compact('products'));
     }
 
     public function destroy($productId)
