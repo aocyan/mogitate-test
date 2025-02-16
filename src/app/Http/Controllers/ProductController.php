@@ -17,10 +17,8 @@ class ProductController extends Controller
 
     public function index()
     {
-        // 商品一覧を取得
         $products = Product::select('id', 'image', 'name', 'price')->paginate(6);
 
-        // 商品一覧ビューを表示
         return view('product', compact('products'));
     }
 
@@ -50,7 +48,6 @@ class ProductController extends Controller
 
         $products = $query->paginate(6);
        
-        
         return view('search', compact('products','searchName','selectedPriceOrder'));
     }
 
@@ -60,7 +57,7 @@ class ProductController extends Controller
         return view('detail', compact('product'));
     }
 
-    public function store(Request $request)
+    public function store(RegisterRequest $request)
     {
         if($request->input('action') === 'register'){
 
