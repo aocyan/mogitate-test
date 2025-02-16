@@ -132,14 +132,15 @@ class ProductController extends Controller
     public function destroy($productId)
     {
         $product = Product::findOrFail($productId);
-
         if ($product->image && Storage::exists($product->image)) {
             Storage::delete($product->image);
         }
 
         $product->delete();
 
-        return redirect()->route('products');
+        $products = Product::paginate(6);
+
+        return view('product', compact('products'));
     }
 
 
