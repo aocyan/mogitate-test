@@ -18,20 +18,30 @@
         <div class="nav__box">
             <nav>
                 <div class="side__nav">
-                    <input class="product__search--text" type="text" name="商品名で検索" value="{{ old('name') }}" placeholder="商品名で検索"/>
-                    <div class="product__search-button">
-				        <input class="product__search-button--item" type="submit" value="検索">
-                    </div>
-                    <div class="price__search">
-                        <p class="price__search--text">価格順で表示</p>
-                        <select class="price__search-select" name="price">
-					        <option class="search__detail--text" value="" disabled selected>価格で並べ替え</option>
-                            <option class="form__detail--option" value="高い順に表示">高い順に表示</option>
-                            <option class="form__detail--option" value="低い順に表示">低い順に表示</option>
-                        </select>
-                    </div>
+                    <form class="product-form" action="{{ route('products.search') }}" method="get">
+                        <input class="product__search--text" type="text" name="name" value="{{ request('name') }}" placeholder="商品名で検索"/>
+                        <div class="product__search-button">
+				            <button class="product__search-button--item" type="submit">検索</button>
+                        </div>                  
+                        <div class="price__search">
+                            <p class="price__search--text">価格順で表示</p>
+                            <select class="price__search-select" name="price">
+					            <option class="search__detail--text" value="" disabled selected>価格で並べ替え</option>
+                                <option class="form__detail--option" value="高い順に表示" {{ request('price') == '高い順に表示' ? 'selected' : '' }}>高い順に表示</option>
+                                <option class="form__detail--option" value="低い順に表示" {{ request('price') == '低い順に表示' ? 'selected' : '' }}>低い順に表示</option>
+                            </select>
+                        </div>
+                    </form>
                 </div>
             </nav>
+        </div>
+        <div class="filters">
+            @if(request('price'))
+                <div class="filter-tag">
+                    <span>{{ request('price') }}</span>
+                    <a href="{{ route('products.search', ['name' => request('name')]) }}" class="filter-tag__remove">×</a>
+                </div>
+            @endif
         </div>
         <div class="product">
             <form class="product-form" action="/products" method="post">

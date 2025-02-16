@@ -28,7 +28,7 @@ class RegisterRequest extends FormRequest
             'price' => 'required|integer|min:0|max:10000',
             'image' => 'required|mimes:png,jpeg',
             'season' => 'required|array|min:1',
-            'message' => 'required|max:120',
+            'description' => 'required|max:120',
         ];
     }
 
@@ -38,12 +38,13 @@ class RegisterRequest extends FormRequest
 			'name.required' => '商品名を入力してください',
 			'price.required' => '値段を入力してください',
 			'price.integer' => '数値で入力してください',
-			'price.min:0|max:10000' => '0~10000円以内で入力してください',
+			'price.min' => '0~10000円以内で入力してください',
+            'price.max' => '0~10000円以内で入力してください',
             'image.required' => '商品画像を登録してください',
-            'image.mimes:png,jpeg' => '「.png」または「.jpeg」形式でアップロードしてください',
+            'image.mimes' => '「.png」または「.jpeg」形式でアップロードしてください',
 			'season.required' => '季節を選択してください',
-			'message.required' => '商品説明を入力してください',
-            'message.max:120' => '120文字以内で入力してください',
+			'description.required' => '商品説明を入力してください',
+            'description.max' => '120文字以内で入力してください',
 		];
 	}
 }

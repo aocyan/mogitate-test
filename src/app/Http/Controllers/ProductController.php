@@ -15,11 +15,34 @@ class ProductController extends Controller
         return view('register');
     }
 
-    public function product()
+    public function productSearch(Request $request)
     {
-        $products = Product::select('id','image','name','price')->paginate(6);
+        $searchName = $request->input('name');
+        $selectedPriceOrder = $request->input('price');
 
-        return view('product', compact('products'));
+        if (empty($searchName) && empty($selectedPriceOrder)) {
+            $products = Product::select('image', 'name', 'price')->paginate(6);
+            return view('product', compact('products'));
+        }
+
+        $query = Product::select('id','image','name','price');
+
+        if ($request->filled('name')) {
+            $query->where('name', 'like', '%' . $request->input('name') . '%');
+        }
+
+        if ($request->filled('price')) {
+            if ($request->input('price') === '高い順に表示') {
+                $query->orderBy('price', 'desc');
+            } 
+            elseif ($request->input('price') === '低い順に表示') {
+                $query->orderBy('price', 'asc');
+            }
+        }
+
+        $products = $query->paginate(6);
+        
+        return view('search', compact('products','searchName','selectedPriceOrder'));
     }
 
     public function show(Product $product)
@@ -62,6 +85,9 @@ class ProductController extends Controller
             $product->seasons()->attach($seasonIds, ['created_at' => now(), 'updated_at' => now()]);
 
             $products = Product::select('image','name','price')->paginate(6);
+
+            dd($request->all());  // リクエストデータをダンプ
+dd($request->errors()); // バリデーションエラーがあればダンプ
 
             return view('product', compact('products'));
         }
