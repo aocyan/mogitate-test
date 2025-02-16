@@ -15,17 +15,25 @@ class ProductController extends Controller
         return view('register');
     }
 
+    public function index()
+    {
+        // 商品一覧を取得
+        $products = Product::select('id', 'image', 'name', 'price')->paginate(6);
+
+        // 商品一覧ビューを表示
+        return view('product', compact('products'));
+    }
+
     public function productSearch(Request $request)
     {
         $searchName = $request->input('name');
         $selectedPriceOrder = $request->input('price');
+        $query = Product::select('id','image','name','price');
 
-        if (empty($searchName) && empty($selectedPriceOrder)) {
+        /*if (empty($searchName) && empty($selectedPriceOrder)) {
             $products = Product::select('image', 'name', 'price')->paginate(6);
             return view('product', compact('products'));
-        }
-
-        $query = Product::select('id','image','name','price');
+        } */      
 
         if ($request->filled('name')) {
             $query->where('name', 'like', '%' . $request->input('name') . '%');
@@ -41,6 +49,7 @@ class ProductController extends Controller
         }
 
         $products = $query->paginate(6);
+       
         
         return view('search', compact('products','searchName','selectedPriceOrder'));
     }
@@ -86,10 +95,9 @@ class ProductController extends Controller
 
             $products = Product::select('image','name','price')->paginate(6);
 
-            dd($request->all());  // リクエストデータをダンプ
-dd($request->errors()); // バリデーションエラーがあればダンプ
+            return redirect()->route('product');  // 製品一覧ページにリダイレクト
 
-            return view('product', compact('products'));
+            //return view('product', compact('products'));
         }
     }
 

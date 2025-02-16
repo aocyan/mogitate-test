@@ -68,7 +68,7 @@
                     @enderror
                 </div>
                 <div class="form__button">
-                    <a class="form__button-back" href="/products">戻る</a>
+                    <a class="form__button-back" href="{{ route('product') }}">戻る</a>
                     <button class="form__button-submit" type="submit" name="action" value="register">登録</button>
                 </div>
             </div>
