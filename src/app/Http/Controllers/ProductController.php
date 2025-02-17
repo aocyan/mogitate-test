@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Season;
+use App\Http\Requests\DetailRequest;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -96,7 +97,7 @@ class ProductController extends Controller
         }
     }
 
-    public function update(Request $request, Product $product)
+    public function update(DetailRequest $request, Product $product)
     {
         if ($request->hasFile('image')) {
             if ($product->image && Storage::exists($product->image)) {

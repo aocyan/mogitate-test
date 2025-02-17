@@ -19,7 +19,7 @@
                 <div class="form__group-title">
                     <p>商品名</p>
                 </div>
-                <input class="form__input" type="text" name="name" value="{{ $product->name }}" />
+                <input class="form__input" type="text" name="name" value="{{ old('name',$product->name) }}" />
                 <div class="form__error">
                     @error('name')
                     {{ $message }}
@@ -28,7 +28,7 @@
                 <div class="form__group-title">
                     <p>値段</p>
                 </div>
-                <input class="form__input" type="text" name="price" value="{{ $product->price }}"/>
+                <input class="form__input" type="text" name="price" value="{{ old('price',$product->price) }}" />
                 <div class="form__error">
                     @error('price')
                         {{ $message }}
@@ -41,23 +41,23 @@
                             $selectedSeasons = $product->seasons->pluck('name')->toArray();
                         @endphp
                         <label>
-                            <input class="season__check--text" type="checkbox" name="season[]" value="春" {{ in_array('春', $selectedSeasons) ? 'checked' : '' }}> 春
+                            <input class="season__check--text" type="checkbox" name="season[]" value="春" {{ in_array('春', old('season', $selectedSeasons)) ? 'checked' : '' }}> 春
                         </label>
                         <label>
-                            <input class="season__check--text" type="checkbox" name="season[]" value="夏" {{ in_array('夏', $selectedSeasons) ? 'checked' : '' }}> 夏
+                            <input class="season__check--text" type="checkbox" name="season[]" value="夏" {{ in_array('夏', old('season', $selectedSeasons)) ? 'checked' : '' }}> 夏
                         </label>
                         <label>
-                            <input class="season__check--text" type="checkbox" name="season[]" value="秋" {{ in_array('秋', $selectedSeasons) ? 'checked' : '' }}> 秋
+                            <input class="season__check--text" type="checkbox" name="season[]" value="秋" {{ in_array('秋', old('season', $selectedSeasons)) ? 'checked' : '' }}> 秋
                         </label>
                         <label>
-                            <input class="season__check--text" type="checkbox" name="season[]" value="冬" {{ in_array('冬', $selectedSeasons) ? 'checked' : '' }}> 冬
+                            <input class="season__check--text" type="checkbox" name="season[]" value="冬" {{ in_array('冬', old('season', $selectedSeasons)) ? 'checked' : '' }}> 冬
                         </label>
                     </div>
-                </div>
-                <div class="form__error">
+                    <div class="form__error--season">
                     @error('season')
                         {{ $message }}
                     @enderror
+                    </div>
                 </div>
                 <div class="form__group-image">
                     <div class="image__item">
@@ -67,17 +67,17 @@
                         <input class="image__text--item" type="file" id="image-upload" name="image" accept="image/*" value="{{ $product->image }}"/>
                     </div>
                 </div>
-                <div class="form__error">
+                <div class="form__error--image">
                     @error('image')
                         {{ $message }}
                     @enderror
                 </div>
                 <div class="form__group-text">
                     <p>商品説明</p>
-                    <textarea class="form__message--text" name="description" rows="8" cols="100">{{ $product->description }}</textarea>
+                    <textarea class="form__message--text" name="description" rows="8" cols="100">{{ old('description', $product->description) }}</textarea>
                 </div>
-                <div class="form__error">
-                    @error('message')
+                <div class="form__error--descripton">
+                    @error('description')
                         {{ $message }}
                     @enderror
                 </div>

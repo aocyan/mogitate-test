@@ -114,3 +114,33 @@
 .form__button-delete--item {
     width: 60px;
 }
+
+.form__error {
+    width: 40%;
+    margin-top: 10px;
+    margin-left: 50%;
+    font-size: 13px;
+    color: #F80506;
+}
+
+.form__error--season {
+    width: 40%;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #F80506;
+}
+
+.form__error--image {
+    width: 40%;
+    top: 10px;
+    font-size: 13px;
+    position: relative;
+    color: #F80506;
+}
+
+.form__error--descripton {
+    width: 50%;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #F80506;
+}
