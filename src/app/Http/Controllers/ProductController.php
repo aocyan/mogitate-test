@@ -55,7 +55,10 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $product->load('seasons');
-        return view('detail', compact('product'));
+
+        $selectedSeasons = $product->seasons->pluck('name')->toArray();
+
+        return view('detail', compact('product','selectedSeasons'));
     }
 
     public function store(RegisterRequest $request)
