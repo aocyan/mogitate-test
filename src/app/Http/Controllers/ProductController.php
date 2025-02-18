@@ -107,7 +107,9 @@ class ProductController extends Controller
                 Storage::delete($product->image);
             }
 
-            $imagePath = $request->file('image')->store('public/products');
+            $image = $request->file('image');
+            $originalName = $image->getClientOriginalName();
+            $imagePath = $image->storeAs('public/products', $originalName);
             $product->image = $imagePath;
         }
     
