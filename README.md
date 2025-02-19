@@ -46,9 +46,7 @@
 * ubuntu：24.04.1
 
 # 〇　ER図
-
-
-
+![image](https://github.com/user-attachments/assets/948986ba-dba2-456e-bded-cd7681e64280)
 
 # 〇　URL
 * 開発環境：　http://localhost/products
