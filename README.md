@@ -40,10 +40,10 @@
  　　sudo chmod -R 777 src/*　を実行してください。
 
 # 〇　使用技術(実行環境)
-* PHP:7.4.9
-* Laravel:8.83.8
-* MySQL:15.1
-* ubuntu:24.04.1
+* PHP：7.4.9
+* Laravel：8.83.8
+* MySQL：15.1
+* ubuntu：24.04.1
 
 # 〇　ER図
 ![mogitate](https://github.com/user-attachments/assets/29900040-1df8-4889-8dec-2b01fc6abf6c)
