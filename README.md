@@ -1,7 +1,6 @@
-FashionablyLate(お問い合わせフォーム)
+mogitate(もぎたて)
 環境構築
 Dockerビルド
-
 git clone 
 DockerDesktopアプリを立ち上げる
 docker-compose up -d --build
