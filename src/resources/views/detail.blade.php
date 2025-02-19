@@ -87,7 +87,7 @@
                 </div>
             </div>
         </form>
-        <form action="{{ url('/products/' . $product->id . '/delete') }}" method="post" style="display:inline;">
+        <form action="{{ url('/products/' . $product->id . '/delete') }}" method="post">
         @csrf
         @method('DELETE')
             <button class="form__button-delete" type="submit">

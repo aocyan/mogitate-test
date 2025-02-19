@@ -141,9 +141,7 @@ class ProductController extends Controller
 
         $product->delete();
 
-        $products = Product::paginate(6);
-
-        return view('product', compact('products'));
+        return redirect()->route('product');
     }
 
 

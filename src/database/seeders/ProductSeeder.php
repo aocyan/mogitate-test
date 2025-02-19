@@ -35,6 +35,7 @@ class ProductSeeder extends Seeder
 
         foreach($seasons as $season) {
             $seasonId = DB::table('seasons')->where('name', $season)->value('id');
+
             DB::table('product_season')->insert([
                 'product_id' => $kiwiId,
                 'season_id' => $seasonId,
