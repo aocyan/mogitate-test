@@ -46,7 +46,7 @@
 * ubuntu：24.04.1
 
 # 〇　ER図
-![mogitate](https://github.com/user-attachments/assets/29900040-1df8-4889-8dec-2b01fc6abf6c)
+
 
 
 
