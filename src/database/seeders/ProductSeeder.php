@@ -33,7 +33,7 @@ class ProductSeeder extends Seeder
 
         $seasons = ['秋', '冬'];
 
-        foreach ($seasons as $season) {
+        foreach($seasons as $season) {
             $seasonId = DB::table('seasons')->where('name', $season)->value('id');
             DB::table('product_season')->insert([
                 'product_id' => $kiwiId,
@@ -48,10 +48,15 @@ class ProductSeeder extends Seeder
             'description' => '大人から子供まで大人気のストロベリー。当店では鮮度抜群の完熟いちごを使用しています。ビタミンCはもちろん食物繊維も豊富なため、腸内環境の改善も期待できます。もぎたてフルーツのスムージーをお召し上がりください！',
         ]);
 
-        DB::table('product_season')->insert([
-            'product_id' => $strawberryId,
-            'season_id' => $seasonId,
-        ]);
+        $seasons = ['春'];
+
+        foreach($seasons as $season) {
+            $seasonId = DB::table('seasons')->where('name', $season)->value('id');
+            DB::table('product_season')->insert([
+                'product_id' => $strawberryId,
+                'season_id' => $seasonId,
+            ]);
+        }
 
         $orangeId = DB::table('products')->insertGetId([
             'name' => 'オレンジ',
@@ -60,10 +65,15 @@ class ProductSeeder extends Seeder
             'description' => '当店では酸味と甘みのバランスが抜群のネーブルオレンジを使用しています。酸味は控えめで、甘さと濃厚な果汁が魅力の商品です。もぎたてフルーツのスムージをお召し上がりください！',
         ]);
 
-        DB::table('product_season')->insert([
-            'product_id' => $orangeId,
-            'season_id' => $seasonId,
-        ]);
+        $seasons = ['冬'];
+
+        foreach($seasons as $season) {
+            $seasonId = DB::table('seasons')->where('name', $season)->value('id');
+            DB::table('product_season')->insert([
+                'product_id' => $orangeId,
+                'season_id' => $seasonId,
+            ]);
+        }
 
         $watermelonId = DB::table('products')->insertGetId([
             'name' => 'スイカ',
@@ -72,10 +82,15 @@ class ProductSeeder extends Seeder
             'description' => '甘くてシャリシャリ食感が魅力のスイカ。全体の90％が水分のため、暑い日の水分補給や熱中症予防、カロリーが気になる方にもおすすめの商品です。もぎたてフルーツのスムージーをお召し上がりください！',
         ]);
 
-        DB::table('product_season')->insert([
-            'product_id' => $watermelonId,
-            'season_id' => $seasonId,
-        ]);
+        $seasons = ['夏'];
+
+        foreach($seasons as $season) {
+            $seasonId = DB::table('seasons')->where('name', $season)->value('id');
+            DB::table('product_season')->insert([
+                'product_id' => $watermelonId,
+                'season_id' => $seasonId,
+            ]);
+        }
 
         $peachId = DB::table('products')->insertGetId([
             'name' => 'ピーチ',
@@ -84,10 +99,15 @@ class ProductSeeder extends Seeder
             'description' => '豊潤な香りととろけるような甘さが魅力のピーチ。美味しさはもちろん見た目の可愛さも抜群の商品です。ビタミンEが豊富なため、生活習慣病の予防にもおすすめです。もぎたてフルーツのスムージーをお召し上がりください！',
         ]);
 
-        DB::table('product_season')->insert([
-            'product_id' => $peachId,
-            'season_id' => $seasonId,
-        ]);
+        $seasons = ['夏'];
+
+        foreach($seasons as $season) {
+            $seasonId = DB::table('seasons')->where('name', $season)->value('id');
+            DB::table('product_season')->insert([
+                'product_id' => $peachId,
+                'season_id' => $seasonId,
+            ]);
+        }
 
         $muscatId = DB::table('products')->insertGetId([
             'name' => 'シャインマスカット',
@@ -147,10 +167,15 @@ class ProductSeeder extends Seeder
             'description' => '低カロリーでありながら栄養満点のため、ダイエット中の方にもおすすめの商品です。1杯でバナナの濃厚な甘みを存分に堪能できます。もぎたてフルーツのスムージーをお召し上がりください！',
         ]);
 
-        DB::table('product_season')->insert([
-            'product_id' => $bananaId,
-            'season_id' => $seasonId,
-        ]);
+        $seasons = ['夏'];
+
+        foreach ($seasons as $season) {
+            $seasonId = DB::table('seasons')->where('name', $season)->value('id');
+            DB::table('product_season')->insert([
+                'product_id' => $bananaId,
+                'season_id' => $seasonId,
+            ]);
+        }
 
         $melonId = DB::table('products')->insertGetId([
             'name' => 'メロン',
