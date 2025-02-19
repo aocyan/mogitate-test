@@ -34,7 +34,7 @@ mogitate(もぎたて)
   php artisan migrate　を実行し、マイグレーションする。
 11.ubuntu内PHPコンテナ上で
 　php artisan db:seed　を実行し、シーダファイルを挿入する。
-12.http://localhost/productsにアクセスする
+12. http://localhost/products にアクセスする
 　※permissionエラーが出た際には、ubuntu内mogitate-testディレクトリで、
  　　sudo chmod -R 777 src/*　を実行してください。
 
