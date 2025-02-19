@@ -5,7 +5,7 @@
 2. DockerDesktopアプリを立ち上げる
 3. ubuntu内で　docker-compose up -d --build　を実行する。(mogitate-testディレクトリ内で実行する）
 4. ubuntu上で　code .　を実行(mogitate-testディレクトリ内で実行する）し、  
-　".yml"ファイル内の  
+　"docker-compose.yml"ファイル内の  
     mysql:  
         image: mysql:8.0.26  
         environment:  
