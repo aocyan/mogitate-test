@@ -46,7 +46,8 @@
 * ubuntu:24.04.1
 
 # 〇　ER図
-https://github.com/aocyan/mogitate-test/commit/417c8709435dc0a893e3bc8268a9b681f6a4f900#diff-e2dfc59d2b39a34b725f9aa84b10eec52fe252206b71daa4dd36b3c9f395f284
+![mogitate](https://github.com/user-attachments/assets/0d3326bb-7ca4-4a11-bb10-3bcd34300b89)
+
 
 # 〇　URL
 * 開発環境：　http://localhost/
