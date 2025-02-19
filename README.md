@@ -1,6 +1,6 @@
 # mogitate(もぎたて)
 # 〇　環境構築手順  
-※(osはwindowsを使用しておりますので、osがmacを使用の際は適宜環境構築お願いします。)
+※(osはwindows11を使用しております。osがmacを使用の際は適宜環境構築お願いします。)
 1. ubuntu内で　git clone git@github.com:aocyan/mogitate-test.git　を実行しクローンする。
 2. DockerDesktopアプリを立ち上げる
 3. ubuntu内で　docker-compose up -d --build　を実行する。(mogitate-testディレクトリ内で実行する）
