@@ -27,7 +27,7 @@ mogitate(もぎたて)
  ※'.env' を保存できませんでした。とエラーが出た場合は、ubuntu内mogitate-testディレクトリ内で
    sudo chown ユーザ名:ユーザ名 ファイル名　でファイルを書き換える権限を付与させてください。
    例：sudo chown aocyan:aocyan /home/aocyan/coachtech/laravel/mogitate-test/src/.env
-8.http://localhost:8080にデータベースが存在しているか確認する（laravel_dbがあるか確認してください）
+8. http://localhost:8080 にデータベースが存在しているか確認する（laravel_dbがあるか確認してください）
 9.ubuntu内PHPコンテナ上で
 　php artisan key:generate　を実行し、アプリケーションキーを生成する。
 10.ubuntu内PHPコンテナ上で
