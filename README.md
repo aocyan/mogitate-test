@@ -1,5 +1,5 @@
-mogitate(もぎたて)
-〇環境構築手順(osはwindowsを使用しておりますので、osをmac使用の際は適宜環境構築お願いします。)
+# mogitate(もぎたて)
+# 〇環境構築手順(osはwindowsを使用しておりますので、osをmac使用の際は適宜環境構築お願いします。)
 1.ubuntu内でgit clone git@github.com:aocyan/mogitate-test.git を実行しクローンする。
 2.DockerDesktopアプリを立ち上げる
 3.ubuntu内でdocker-compose up -d --buildを実行する。(mogitate-testディレクトリ内で実行する）
@@ -38,7 +38,7 @@ mogitate(もぎたて)
 　※permissionエラーが出た際には、ubuntu内mogitate-testディレクトリで、
  　　sudo chmod -R 777 src/*　を実行してください。
 
-使用技術(実行環境)
+# 使用技術(実行環境)
 PHP8.3.0
 Laravel8.83.27
 MySQL8.0.26
