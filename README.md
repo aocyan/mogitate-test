@@ -38,6 +38,8 @@
 13. http://localhost/products にアクセスする  
 　※permissionエラーが出た際には、ubuntu内mogitate-testディレクトリで、  
  　　sudo chmod -R 777 src/*　を実行してください。
+14.シンボリックリンク
+   php artisan storage:link  を実行してください。
 
 # 〇　使用技術(実行環境)
 * PHP：7.4.9
